@@ -1,0 +1,72 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: black;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+.center-container {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.coin {
+  width: 180px;
+  height: 180px;
+  background: gold url("/Assets/coin.png") no-repeat center/contain;
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+  transition: transform 0.5s;
+}
+.falling-coins {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 50px;
+  width: 50px;
+  background: gold url("/Assets/coin.png") no-repeat center/contain;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  transform: translateX(-50%);
+  pointer-events: none;
+  opacity: 0.6;
+  animation: fall 1.2s linear forwards;
+}
+.click-effect {
+  position: absolute;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 24px;
+  animation: moveup_and_fade 2.5s forwards;
+  pointer-events: none;
+}
+.cursor {
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  pointer-events: none;
+  transition: transform 0.1s;
+}
+@keyframes moveup_and_fade {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+}
+@keyframes fall {
+  0% {
+    transform: translateY(0) translateX(-50%) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(50vh) translateX(-50%) rotate(360deg);
+    opacity: 0;
+  }
+}
